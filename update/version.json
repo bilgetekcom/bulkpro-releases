@@ -1,0 +1,13 @@
+{
+    "version": "0.1.11",
+    "release_date": "2026-06-07",
+    "min_required": "0.1.0",
+    "channel": "stable",
+    "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.11/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "",
+    "release_notes": {
+        "en": "Internal cleanup: removed deprecated data_engine, text_tools, and file_search modules. Added a multi-engine stress test harness for audio, excel, image, pdf, and video pipelines.",
+        "tr": "Ic temizlik: kullanim disi data_engine, text_tools ve file_search modulleri kaldirildi. Audio, excel, image, pdf ve video pipeline'lari icin coklu motor stres testi altyapisi eklendi."
+    }
+}

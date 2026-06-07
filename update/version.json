@@ -4,7 +4,7 @@
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.11/BulkPRO-Web-Setup.exe",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.12/BulkPRO-Web-Setup.exe",
     "checksum_sha256": "b98354da24607ff5c9cb957e8dcf59b6362be31d1048a53b4082c7d19ef5a5a8",
     "release_notes": {
         "en": "Silent first-launch setup: no more CMD window flashes, native splash with marquee progress bar, fatal-error MessageBox for pythonw users.",

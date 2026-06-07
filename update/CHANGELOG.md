@@ -5,6 +5,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.12] — 2026-06-07
+
+### UX
+
+- **Silent first-launch setup**: the slow-path bootstrap (clone Python, pip-install core deps, AI components, model sync) no longer flashes a black CMD window. `run.bat` now launches `bootstrap.py` via `pythonw.exe`, and every internal `pip`/`taskkill` subprocess uses `CREATE_NO_WINDOW`.
+- **Install splash dialog**: while bootstrap runs, a native Windows.Forms progress window (PowerShell-based, no extra dependency) shows "Eksik bilesenler indiriliyor..." with a marquee progress bar. It auto-closes when bootstrap finishes — or if bootstrap crashes (parent-PID watchdog).
+- **Fatal-error MessageBox**: failures inside `bootstrap.py` now surface via a native MessageBox (ctypes / user32) so pythonw users see a real error instead of a silent exit.
+
+---
+
 ## [0.1.11] — 2026-06-07
 
 ### Maintenance

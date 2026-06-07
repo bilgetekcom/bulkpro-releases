@@ -5,9 +5,9 @@
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
     "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.11/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "84b968d98e92415cfaf5fe232be0510e6fd1bfce90112bd5e9725837e2fa9e40",
+    "checksum_sha256": "b98354da24607ff5c9cb957e8dcf59b6362be31d1048a53b4082c7d19ef5a5a8",
     "release_notes": {
-        "en": "Removed deprecated tools (data_engine, text_tools, file_search); added stress harness; fixed update feed pipeline.",
-        "tr": "Kullanim disi araclar kaldirildi (data_engine, text_tools, file_search); stres testi altyapisi eklendi; guncelleme feed sistemi onarildi."
+        "en": "Silent first-launch setup: no more CMD window flashes, native splash with marquee progress bar, fatal-error MessageBox for pythonw users.",
+        "tr": "Sessiz ilk acilis kurulumu: CMD penceresi yansimasi yok, ilerleme cubugu ile yerel splash ekrani, pythonw kullanicilari icin MessageBox hata bildirimi."
     }
 }

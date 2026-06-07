@@ -5,6 +5,20 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.13] — 2026-06-07
+
+### Fixed
+
+- **Updater feed rejected**: `shared/updater.py` allow-list was missing `bilgetekcom.github.io`, so v0.1.11 / v0.1.12 builds refused to follow their own update feed ("Untrusted feed host" in logs). Added the host; the in-app update banner now actually surfaces new releases.
+- **Config "Permission denied"**: `config.json` lived under `C:\Program Files\BulkPRO\` — every save attempt failed with `[Errno 13]` for non-admin users, silently dropping language / theme / AI device preferences. Canonical config now lives at `%LOCALAPPDATA%\BulkPro\config.json`. Existing installs still seed from the install-dir copy on first launch.
+- **Self-Healing false-FATAL**: a `/COMPONENTS=core` install has no bundled `external/` directory, but `external` was on the FATAL `REQUIRED_DIRS` list — Self-Healing flagged perfectly healthy installs as "install incomplete". Moved to `OPTIONAL_DIRS` and reports as a `WARN` instead. The `ffmpeg` system-PATH fallback that was already in place (`_fix_imageio_env`) works as intended.
+
+### Observability
+
+- **Bootstrap log file**: pythonw.exe sends stdout to NUL, so the silent-launch hardening from v0.1.12 also silenced `[BOOTSTRAP] ...` lines. They now tee into `%LOCALAPPDATA%\BulkPro\logs\bootstrap.log` along with full pip / model-manager subprocess output. The fatal-error MessageBox shows the exact path so users can grab it without spelunking.
+
+---
+
 ## [0.1.12] — 2026-06-07
 
 ### UX

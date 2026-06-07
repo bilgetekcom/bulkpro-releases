@@ -1,13 +1,13 @@
 {
-    "version": "0.1.12",
+    "version": "0.1.13",
     "release_date": "2026-06-07",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.12/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "b98354da24607ff5c9cb957e8dcf59b6362be31d1048a53b4082c7d19ef5a5a8",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.13/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "01245f95c612613a7f43a02e492ee2b296cd506b325a55244b76fcb026ccafe9",
     "release_notes": {
-        "en": "Silent first-launch setup: no more CMD window flashes, native splash with marquee progress bar, fatal-error MessageBox for pythonw users.",
-        "tr": "Sessiz ilk acilis kurulumu: CMD penceresi yansimasi yok, ilerleme cubugu ile yerel splash ekrani, pythonw kullanicilari icin MessageBox hata bildirimi."
+        "en": "Critical fixes: in-app updater now actually finds new releases (host allow-list); config saves under LocalAppData (no more Permission denied); Self-Healing no longer false-flags healthy core installs; bootstrap.log captures pip output.",
+        "tr": "Kritik duzeltmeler: in-app guncelleyici artik yeni surumleri buluyor (host allow-list); config kullanici dizininde (Permission denied yok); Self-Healing saglikli core kurulumlari hatali isaretlemiyor; bootstrap.log pip ciktisini yakaliyor."
     }
 }

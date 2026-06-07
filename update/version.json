@@ -5,9 +5,9 @@
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
     "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.11/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "",
+    "checksum_sha256": "84b968d98e92415cfaf5fe232be0510e6fd1bfce90112bd5e9725837e2fa9e40",
     "release_notes": {
-        "en": "Internal cleanup: removed deprecated data_engine, text_tools, and file_search modules. Added a multi-engine stress test harness for audio, excel, image, pdf, and video pipelines.",
-        "tr": "Ic temizlik: kullanim disi data_engine, text_tools ve file_search modulleri kaldirildi. Audio, excel, image, pdf ve video pipeline'lari icin coklu motor stres testi altyapisi eklendi."
+        "en": "Removed deprecated tools (data_engine, text_tools, file_search); added stress harness; fixed update feed pipeline.",
+        "tr": "Kullanim disi araclar kaldirildi (data_engine, text_tools, file_search); stres testi altyapisi eklendi; guncelleme feed sistemi onarildi."
     }
 }

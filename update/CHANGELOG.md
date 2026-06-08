@@ -5,6 +5,20 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.23] — 2026-06-08
+
+### Diagnostics
+
+- **Qt-level window tracer.** When `BULKPRO_TRACE_WINDOWS` is set to a
+  writable path, every top-level QWidget Show / Hide / Activate event is
+  logged with timestamp, class name, window title, flags, and size. The
+  v0.1.22 lazy-stub parenting fix didn't fully eliminate the "pythonw"
+  mini-window flashes; this tracer logs the exact Qt widget class that's
+  becoming top-level so we can fix it surgically rather than mechanically
+  refactor every tool class.
+
+---
+
 ## [0.1.22] — 2026-06-08
 
 ### Fixed

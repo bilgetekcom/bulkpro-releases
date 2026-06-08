@@ -1,13 +1,13 @@
 {
-    "version": "0.1.22",
+    "version": "0.1.23",
     "release_date": "2026-06-08",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.22/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "aa8521bbb096d6b6665dab9ef139c484516c75da72dc5596778138ee0fa6c089",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.23/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "c28d0f8c07fc4be775ade200194a46d3d6c07d69687a4240062c755e7326e2ff",
     "release_notes": {
-        "en": "pythonw mini-window flashes during module navigation: FIXED. They were Qt widgets created without a parent (lazy stubs that briefly became top-level windows titled 'pythonw' before being reparented). Every lazy placeholder now passes its parent in the constructor.",
-        "tr": "Modül geçişlerinde flaşlayan pythonw mini-pencereleri: ÇÖZÜLDÜ. Bunlar parent verilmeden oluşturulan Qt widget'larıydı (lazy stub'lar, reparent edilmeden önce kısa süre 'pythonw' başlıklı top-level pencere oluyordu). Tüm lazy placeholder'lar artık parent'ı constructor'da alıyor."
+        "en": "Qt window tracer: set BULKPRO_TRACE_WINDOWS=path to log every top-level QWidget show/hide event for chasing residual flashes.",
+        "tr": "Qt pencere tracer: BULKPRO_TRACE_WINDOWS=path ile her top-level QWidget show/hide olayını loglar, kalan flash'ları kovalamak için."
     }
 }

@@ -5,6 +5,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.20] — 2026-06-08
+
+### Diagnostics
+
+- **Process-spawn tracer for chasing residual console flashes.** When
+  `BULKPRO_TRACE_SPAWNS` is set to a writable path, every `subprocess.Popen`
+  and `_winapi.CreateProcess` call is logged with timestamp, pre-OR
+  `creationflags`, command line, and a six-frame caller stack. Off when the
+  env var is unset — zero overhead in normal runs. Used to isolate which
+  spawn (if any) is reaching the screen even with Layers 1+2+3 active.
+
+---
+
 ## [0.1.19] — 2026-06-08
 
 ### Fixed

@@ -1,13 +1,13 @@
 {
-    "version": "0.1.19",
+    "version": "0.1.20",
     "release_date": "2026-06-08",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.19/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "519be03625c169f0a3d7dc6dc339b5c5d12b404a5ad6c331c316d54c2dd6338b",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.20/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "f52809b23d3f0da19706e12fcbbd29ffdb63eaa7c3f1d0e56cf2e1d2025bbf75",
     "release_notes": {
-        "en": "Update check no longer fails with libshiboken stale-ref error; Excel Studio tab loading restored (the v0.1.15 lazy refactor was broken — caught by actually running the app this time).",
-        "tr": "Güncelleme kontrolü artık libshiboken stale-ref hatası vermiyor; Excel Studio tab açılışı düzeltildi (v0.1.15 lazy refactor bozuktu — bu sefer gerçekten launch ederek yakalandı)."
+        "en": "Diagnostic release: spawn tracer (BULKPRO_TRACE_SPAWNS env var) logs every subprocess.Popen + _winapi.CreateProcess with caller stack. Modules verified working via interactive testing of v0.1.19; this release adds tooling to pinpoint residual flashes.",
+        "tr": "Tanılama sürümü: spawn tracer (BULKPRO_TRACE_SPAWNS env var) her subprocess.Popen + _winapi.CreateProcess çağrısını caller stack ile loglar. Tüm modüller v0.1.19'da interaktif testte çalıştığı doğrulandı; bu sürüm kalan flash'ların kaynağını saptamak için araç ekliyor."
     }
 }

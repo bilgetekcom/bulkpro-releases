@@ -1,13 +1,13 @@
 {
-    "version": "0.1.15",
+    "version": "0.1.16",
     "release_date": "2026-06-08",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.15/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "100f499197fbd6345f051eda3a4dc2cbdb9603e0de16ab9fde364a5b14846d9a",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.16/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "89e48b371db632ee8af1fd58f3911ea6e2d067c9b25e62fa1870d38314d4479c",
     "release_notes": {
-        "en": "Faster module switching: Excel Studio ~8x and Productivity Suite ~40x quicker to open. Hidden console window flashes from background tools (ffmpeg, tesseract, etc.). Update feed signature CRLF/LF fix.",
-        "tr": "Daha hızlı modül geçişi: Excel Studio ~8x ve Productivity Suite ~40x daha hızlı açılıyor. Arka plan araçlarındaki (ffmpeg, tesseract vb.) konsol pencere flaş'ları gizlendi. Güncelleme feed imza CRLF/LF düzeltmesi."
+        "en": "Installer cleanup: removed phantom ai_video / ai_gpu components, desktop shortcut now pre-selected, Video Jump-Cut points at the right AI component. First-launch splash bar now actually animates (visual styles fix) and shows an elapsed-time counter.",
+        "tr": "Kurulum temizliği: hayalet ai_video / ai_gpu bileşenleri kaldırıldı, masaüstü kısayolu artık varsayılan olarak seçili, Video Jump-Cut doğru AI bileşenini istiyor. İlk açılış splash çubuğu artık gerçekten hareket ediyor (görsel stiller düzeltmesi) ve geçen süreyi gösteriyor."
     }
 }

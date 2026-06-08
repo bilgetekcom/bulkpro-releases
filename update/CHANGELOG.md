@@ -5,6 +5,30 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.16] — 2026-06-08
+
+### Installer
+
+- **Removed phantom AI components** (`ai_video`, `ai_gpu`) from the installer
+  component picker. Both were dropped back in v0.1.14 but the Inno Setup
+  script still listed them, so users saw — and could check — install options
+  for tools that no longer ship.
+- **Desktop shortcut is now pre-selected** by default during install.
+- Video Jump-Cut now correctly declares its `ai_transcription` requirement
+  (it was tagged `ai_video`, an alias that no longer existed, so the install
+  prompt for the Whisper component never fired even though the tool needs it).
+
+### Fixed
+
+- **First-launch splash bar now animates.** The Marquee-style ProgressBar
+  needed `Application.EnableVisualStyles()` to be called before any control
+  was created; without it the bar rendered in classic Windows style and
+  stayed frozen, making the install look hung. Added an elapsed-time
+  counter below the bar as a second "alive" signal in case the OS theme
+  ever refuses the marquee animation.
+
+---
+
 ## [0.1.15] — 2026-06-08
 
 ### Performance

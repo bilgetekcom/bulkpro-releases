@@ -5,6 +5,33 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.15] — 2026-06-08
+
+### Performance
+
+- **Excel Studio opens ~8× faster** (7.4 s → 0.9 s on a cold start). The 8 tool
+  tabs were being constructed eagerly at module load along with their pandas /
+  openpyxl import chains; now each tab is materialised only when first selected.
+- **Productivity Suite opens ~40× faster** (4.2 s → 0.1 s). The 12 cross-app
+  pages were being imported via `safe_import_page` at module load; they now
+  load on the first click of their dashboard tile.
+- PDF Studio is also a touch quicker (1.1 s → 0.6 s) as a side effect.
+
+### Fixed
+
+- **Hidden console window flashes** when modules spawn background tools
+  (ffmpeg, tesseract, powercfg, etc.). A global `subprocess.Popen` wrapper now
+  applies `CREATE_NO_WINDOW` to every spawn — no more cmd windows blinking
+  during normal use.
+- **Update feed signature verification.** The `version.json` published to
+  GitHub Pages was being normalised from CRLF to LF during `git push`, so the
+  bytes the updater verified no longer matched the bytes that had been signed
+  locally — surfacing as "Update check failed" in Settings. The deploy script
+  now writes the feed in LF, self-verifies the signature before publishing,
+  and pins the file as binary via `.gitattributes`.
+
+---
+
 ## [0.1.14] — 2026-06-08
 
 ### License & Cleanup

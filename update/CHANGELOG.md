@@ -5,6 +5,27 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.24] — 2026-06-08
+
+### Fixed
+
+- **The "pythonw" mini-window flashes are GONE for real this time.** The
+  v0.1.22 attempt parented the Hub's `ToolCard` / `ToolSubCard` /
+  `ModulePanel` children, but the residual flashes turned out to be
+  coming from the shared UI library that every tool uses. The v0.1.23
+  window tracer pointed straight at `shared/ui/components/header.py`,
+  `section.py`, `drop_zone.py`, `file_card.py`, `form_row.py`,
+  `output_bar.py`, `page_range.py`, `slider.py`, `color_picker.py` and
+  `file_batch.py` — every QLabel / QWidget / QFrame in those classes was
+  being created without a parent. With ~75 tools each instantiating
+  several of these widgets on first activation, every first open
+  multiplied into a burst of brief top-level "pythonw" windows that DWM
+  briefly composited. Each child now gets `self` (the shared component)
+  passed in its constructor — full all-modules trace went from 70+
+  top-level widget show events down to 0.
+
+---
+
 ## [0.1.23] — 2026-06-08
 
 ### Diagnostics

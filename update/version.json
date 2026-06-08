@@ -1,13 +1,13 @@
 {
-    "version": "0.1.23",
+    "version": "0.1.24",
     "release_date": "2026-06-08",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.23/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "c28d0f8c07fc4be775ade200194a46d3d6c07d69687a4240062c755e7326e2ff",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.24/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "35363bf84131b2036b4d2aedecf2736edacf1fc2f73e91870f8f079a0a0cba43",
     "release_notes": {
-        "en": "Qt window tracer: set BULKPRO_TRACE_WINDOWS=path to log every top-level QWidget show/hide event for chasing residual flashes.",
-        "tr": "Qt pencere tracer: BULKPRO_TRACE_WINDOWS=path ile her top-level QWidget show/hide olayını loglar, kalan flash'ları kovalamak için."
+        "en": "pythonw mini-window flashes during tool first-open are GONE. Root cause: shared/ui/components had ~10 widget classes with unparented QLabel/QWidget/QFrame children. All fixed at the source. Full trace went from 70+ events to 0.",
+        "tr": "Araç ilk açılışında flaşlayan pythonw mini-pencereleri ARTIK YOK. Sebep: shared/ui/components içinde ~10 widget sınıfının QLabel/QWidget/QFrame çocukları parent'sız oluşuyordu. Hepsi kaynakta düzeltildi. Toplam trace 70+ olaydan 0'a düştü."
     }
 }

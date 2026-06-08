@@ -5,6 +5,26 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.21] — 2026-06-08
+
+### Fixed
+
+- **Productivity Suite's OCR tile (and any other AI-gated page) no longer
+  shows a misleading "Akıllı Arama yüklenirken hata" / "Smart Search
+  loading error".** When `intelligence_suite/_ensure_slot_built`
+  instantiated a page decorated with `@require_component`, the
+  `ComponentMissingError` raised by the decorator was caught by a generic
+  `except Exception` that surfaced a label with the smart-search error
+  key — confusing because the user clicked an OCR tile. The slot now
+  catches `ComponentMissingError` separately and shows the proper
+  "🧩 Optional AI Component Required" placeholder with an Install Now
+  button (same UX the audio / image / video studios already had).
+- Truly unexpected exceptions now bubble up to a generic
+  `tab_build_fail` label that includes the actual exception text,
+  instead of being hidden behind a smart-search-specific message.
+
+---
+
 ## [0.1.20] — 2026-06-08
 
 ### Diagnostics

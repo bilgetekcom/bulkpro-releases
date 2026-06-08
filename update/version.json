@@ -1,13 +1,13 @@
 {
-    "version": "0.1.18",
+    "version": "0.1.19",
     "release_date": "2026-06-08",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.18/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "88997f24625063e3f29fc3dfd583a12f6d29a2640679a2144f68ac9527a18d7a",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.19/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "519be03625c169f0a3d7dc6dc339b5c5d12b404a5ad6c331c316d54c2dd6338b",
     "release_notes": {
-        "en": "pythonw worker windows no longer flash (added Layer 3: _winapi.CreateProcess wrap, catches multiprocessing direct syscall). Update check now shows the actual error message instead of generic 'Check failed'.",
-        "tr": "pythonw worker pencereleri artık flaşlamıyor (Katman 3 eklendi: _winapi.CreateProcess sarmalandı, multiprocessing direct syscall'lar yakalanıyor). Güncelleme kontrolü artık 'Kontrol başarısız' yerine gerçek hata mesajını gösteriyor."
+        "en": "Update check no longer fails with libshiboken stale-ref error; Excel Studio tab loading restored (the v0.1.15 lazy refactor was broken — caught by actually running the app this time).",
+        "tr": "Güncelleme kontrolü artık libshiboken stale-ref hatası vermiyor; Excel Studio tab açılışı düzeltildi (v0.1.15 lazy refactor bozuktu — bu sefer gerçekten launch ederek yakalandı)."
     }
 }

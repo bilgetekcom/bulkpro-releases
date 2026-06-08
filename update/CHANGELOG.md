@@ -5,6 +5,28 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.19] — 2026-06-08
+
+### Fixed
+
+- **"Check for updates" no longer surfaces `libshiboken: Internal C++ object
+  (UpdateChecker) already deleted`.** When the previous check's `QThread`
+  was destroyed by Qt, `UpdateManager` kept a dangling Python reference to
+  it; the next call's `self._checker.isRunning()` then raised through
+  shiboken and the Settings UI displayed it as the failure reason. The
+  manager now drops both the C++ object and the Python ref when a checker
+  / downloader finishes, and guards every stale-ref access with a
+  `try/except RuntimeError` fallback.
+- **Excel Studio tabs open again.** v0.1.15's lazy-import refactor moved the
+  tool imports out of `main.py`'s top level, but the Hub's `load_app_module`
+  removes the app's `src/` from `sys.path` as soon as the import returns —
+  so the deferred `__import__('tools.X')` later threw
+  `ModuleNotFoundError: No module named 'tools'` and the tab's stub stayed
+  empty. The lazy loader now re-adds `src/` for the duration of each tool
+  import.
+
+---
+
 ## [0.1.18] — 2026-06-08
 
 ### Fixed

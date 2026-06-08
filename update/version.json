@@ -1,13 +1,13 @@
 {
-    "version": "0.1.16",
+    "version": "0.1.17",
     "release_date": "2026-06-08",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.16/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "89e48b371db632ee8af1fd58f3911ea6e2d067c9b25e62fa1870d38314d4479c",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.17/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "2892c205f4b2babaec93ea2459e265b6a1a90a089e81b0ba8a16d50c5d0935c6",
     "release_notes": {
-        "en": "Installer cleanup: removed phantom ai_video / ai_gpu components, desktop shortcut now pre-selected, Video Jump-Cut points at the right AI component. First-launch splash bar now actually animates (visual styles fix) and shows an elapsed-time counter.",
-        "tr": "Kurulum temizliği: hayalet ai_video / ai_gpu bileşenleri kaldırıldı, masaüstü kısayolu artık varsayılan olarak seçili, Video Jump-Cut doğru AI bileşenini istiyor. İlk açılış splash çubuğu artık gerçekten hareket ediyor (görsel stiller düzeltmesi) ve geçen süreyi gösteriyor."
+        "en": "Console flash fix, take two: added STARTUPINFO+SW_HIDE alongside CREATE_NO_WINDOW. Video Studio's moviepy -> imageio_ffmpeg -> platform.win32_ver chain was leaking a cmd.exe flash through the shell=True wrapper; now double-suppressed.",
+        "tr": "Konsol flaş düzeltmesi, ikinci tur: CREATE_NO_WINDOW'a ek olarak STARTUPINFO+SW_HIDE eklendi. Video Studio'nun moviepy -> imageio_ffmpeg -> platform.win32_ver zinciri shell=True üzerinden cmd.exe flaşı sızdırıyordu; artık çift katmanlı engelleniyor."
     }
 }

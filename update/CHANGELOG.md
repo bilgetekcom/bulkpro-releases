@@ -5,6 +5,22 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.17] — 2026-06-08
+
+### Fixed
+
+- **Console window flashes on first module open are now actually gone.**
+  v0.1.15's subprocess wrapper added `CREATE_NO_WINDOW`, which is enough for
+  most callers but still leaked a brief cmd.exe flash on some Windows builds
+  when transitive imports (`moviepy` → `imageio_ffmpeg` → stdlib
+  `platform.win32_ver()` → `subprocess.check_output("ver", shell=True)`)
+  fired during Video Studio's first load. The wrapper now also attaches a
+  `STARTUPINFO` with `SW_HIDE` as a second layer. Callers that explicitly
+  want their child to show a window (custom `STARTUPINFO` with a non-zero
+  `wShowWindow`) are left alone.
+
+---
+
 ## [0.1.16] — 2026-06-08
 
 ### Installer

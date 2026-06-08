@@ -5,6 +5,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.26] — 2026-06-08
+
+### Changed
+
+- **Installing an optional AI component now offers to restart BulkPRO**
+  so the freshly-installed wheels are actually picked up. Before this,
+  `pip` would finish, the dialog would close, and the user was left
+  staring at a tool that should work but didn't — because the running
+  interpreter's import state is fixed at startup and can't see new
+  packages until the process restarts. The user now gets a "Restart
+  now?" prompt (Yes = `os.execl` clean restart, No = silent, take
+  effect on next manual launch).
+
+---
+
 ## [0.1.25] — 2026-06-08
 
 ### Fixed

@@ -5,6 +5,23 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.18] — 2026-06-08
+
+### Fixed
+
+- **pythonw worker windows no longer flash on first module / tool open.**
+  Tools that spin up `multiprocessing.Process` or `Pool` workers call
+  `_winapi.CreateProcess` directly, bypassing the v0.1.15 / v0.1.17
+  `subprocess.Popen` wrappers. The patch now also wraps the syscall itself
+  to OR-in `CREATE_NO_WINDOW`, catching every Windows process spawn route
+  used by stdlib code.
+- **Update check now shows the actual error** when it fails. v0.1.17 just
+  said "Check failed" with no hint of why (signature mismatch? network?
+  SSL trust?) — the tab now appends the underlying message and stores the
+  full text in the tooltip so it can be copied for support.
+
+---
+
 ## [0.1.17] — 2026-06-08
 
 ### Fixed

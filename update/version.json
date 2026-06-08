@@ -1,13 +1,13 @@
 {
-    "version": "0.1.17",
+    "version": "0.1.18",
     "release_date": "2026-06-08",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.17/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "2892c205f4b2babaec93ea2459e265b6a1a90a089e81b0ba8a16d50c5d0935c6",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.18/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "88997f24625063e3f29fc3dfd583a12f6d29a2640679a2144f68ac9527a18d7a",
     "release_notes": {
-        "en": "Console flash fix, take two: added STARTUPINFO+SW_HIDE alongside CREATE_NO_WINDOW. Video Studio's moviepy -> imageio_ffmpeg -> platform.win32_ver chain was leaking a cmd.exe flash through the shell=True wrapper; now double-suppressed.",
-        "tr": "Konsol flaş düzeltmesi, ikinci tur: CREATE_NO_WINDOW'a ek olarak STARTUPINFO+SW_HIDE eklendi. Video Studio'nun moviepy -> imageio_ffmpeg -> platform.win32_ver zinciri shell=True üzerinden cmd.exe flaşı sızdırıyordu; artık çift katmanlı engelleniyor."
+        "en": "pythonw worker windows no longer flash (added Layer 3: _winapi.CreateProcess wrap, catches multiprocessing direct syscall). Update check now shows the actual error message instead of generic 'Check failed'.",
+        "tr": "pythonw worker pencereleri artık flaşlamıyor (Katman 3 eklendi: _winapi.CreateProcess sarmalandı, multiprocessing direct syscall'lar yakalanıyor). Güncelleme kontrolü artık 'Kontrol başarısız' yerine gerçek hata mesajını gösteriyor."
     }
 }

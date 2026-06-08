@@ -5,6 +5,29 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.22] — 2026-06-08
+
+### Fixed
+
+- **The "pythonw" mini-windows that flashed during first module / tool
+  open are now gone.** The bug was NOT a child process — it was Qt
+  widgets. Every lazy-load placeholder (`stub = QWidget()`,
+  `QLabel("")`, etc.) was being created without a parent. A parent-less
+  Qt widget is technically a top-level window, so DWM briefly added it
+  to the window list with the default title (the executable name,
+  `pythonw`) before our `addTab` / `addWidget` call reparented it. The
+  flash was that brief DWM-managed appearance.
+- Fixed in pdf_tools, excel_tools, image_pro, audio_engine,
+  video_engine, intelligence_suite and sys_tools — every lazy
+  placeholder now passes its parent (`self.tabs` / `self.stack`) in the
+  constructor so it's never momentarily top-level. This is why a user's
+  trace.log was empty: the wrapper was correctly catching every
+  `subprocess.Popen` / `_winapi.CreateProcess` call (only the moviepy
+  startup `ver` chain). The flash was Qt widgets, not subprocesses, and
+  the trace was telling us so.
+
+---
+
 ## [0.1.21] — 2026-06-08
 
 ### Fixed

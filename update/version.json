@@ -1,13 +1,13 @@
 {
-    "version": "0.1.21",
+    "version": "0.1.22",
     "release_date": "2026-06-08",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.21/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "7fccc64e2989c7cbcee4cf5fd494c07f56d81b21804e2bbe600e14105d017200",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.22/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "aa8521bbb096d6b6665dab9ef139c484516c75da72dc5596778138ee0fa6c089",
     "release_notes": {
-        "en": "Productivity Suite OCR tile (and other AI-gated pages) no longer shows misleading 'Smart Search loading error' — now shows proper component install prompt. Smoke-tested across all 75 tool widgets.",
-        "tr": "Verimlilik Paketi'ndeki OCR tile (ve diğer AI gerektiren sayfalar) artık yanıltıcı 'Akıllı Arama yüklenirken hata' göstermiyor — doğru bileşen kurulum prompt'u gösteriyor. Tüm 75 tool widget'ında smoke test yapıldı."
+        "en": "pythonw mini-window flashes during module navigation: FIXED. They were Qt widgets created without a parent (lazy stubs that briefly became top-level windows titled 'pythonw' before being reparented). Every lazy placeholder now passes its parent in the constructor.",
+        "tr": "Modül geçişlerinde flaşlayan pythonw mini-pencereleri: ÇÖZÜLDÜ. Bunlar parent verilmeden oluşturulan Qt widget'larıydı (lazy stub'lar, reparent edilmeden önce kısa süre 'pythonw' başlıklı top-level pencere oluyordu). Tüm lazy placeholder'lar artık parent'ı constructor'da alıyor."
     }
 }

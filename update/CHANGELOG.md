@@ -5,6 +5,37 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.25] — 2026-06-08
+
+### Fixed
+
+- **Excel Studio tabs no longer break after navigating to another module
+  and coming back** (`Could not load this tool: No module named
+  'tools.cleaner'`). The Hub's `load_app_module` evicts `sys.modules['tools']`
+  every time you switch apps and rebinds it to whichever sibling you
+  visited; the lazy importer in `excel_tools` then resolved `tools.cleaner`
+  against e.g. video_engine's tools folder and failed. The importer now
+  evicts any cross-app `tools.*` / `core.*` cache before adding our `src/`
+  back to `sys.path`.
+- **Text Analyzer no longer writes a crash log when content changes.** The
+  worker reference held a dangling Python wrapper of a Qt `NLPWorker` whose
+  C++ object had already been deleted (`deleteLater` chained from the
+  previous run's `finished` signal). Calling `isRunning()` on the stale
+  ref raised `RuntimeError: libshiboken: Internal C++ object (NLPWorker)
+  already deleted` → caught by the global excepthook → user saw the
+  crash-log dialog. Same fix applied as v0.1.19's UpdateManager: guard
+  the access with `try/except RuntimeError` and drop the dead ref.
+- **Password Generator's leak-check now works out of the box.** The
+  `allow_network_breach` setting defaulted to `False`, so the button
+  silently fell back to "needs internet or local DB" even with a working
+  connection. Flipped the default to `True` (HIBP uses k-anonymity — only
+  the first 5 SHA-1 hex chars of the password leave the device) and
+  auto-migrates existing configs that had the legacy `False` with no
+  local DB path. Users who specifically want the API disabled can untick
+  the checkbox in Settings.
+
+---
+
 ## [0.1.24] — 2026-06-08
 
 ### Fixed

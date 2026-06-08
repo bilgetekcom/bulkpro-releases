@@ -1,13 +1,13 @@
 {
-    "version": "0.1.24",
+    "version": "0.1.25",
     "release_date": "2026-06-08",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.24/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "35363bf84131b2036b4d2aedecf2736edacf1fc2f73e91870f8f079a0a0cba43",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.25/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "279c18c7996977d79df6afbdddfd348431851fbaa5e79d6855a68b041bac2828",
     "release_notes": {
-        "en": "pythonw mini-window flashes during tool first-open are GONE. Root cause: shared/ui/components had ~10 widget classes with unparented QLabel/QWidget/QFrame children. All fixed at the source. Full trace went from 70+ events to 0.",
-        "tr": "Araç ilk açılışında flaşlayan pythonw mini-pencereleri ARTIK YOK. Sebep: shared/ui/components içinde ~10 widget sınıfının QLabel/QWidget/QFrame çocukları parent'sız oluşuyordu. Hepsi kaynakta düzeltildi. Toplam trace 70+ olaydan 0'a düştü."
+        "en": "Excel Studio tabs (No module named tools.cleaner regression), Text Analyzer crash logs on content change, and Password leak-check off by default — all three fixed.",
+        "tr": "Excel Studio araçları (No module named tools.cleaner regresyonu), Metin Analizörü içeriği değişince crash log, ve Parola Üretici sızıntı kontrolü varsayılan kapalı — üçü de düzeltildi."
     }
 }

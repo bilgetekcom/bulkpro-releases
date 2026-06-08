@@ -1,13 +1,13 @@
 {
-    "version": "0.1.13",
-    "release_date": "2026-06-07",
+    "version": "0.1.14",
+    "release_date": "2026-06-08",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.13/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "01245f95c612613a7f43a02e492ee2b296cd506b325a55244b76fcb026ccafe9",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.14/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "b947128aa0e6bc5ab8cbb820909e1c9cd322768368bd7c1b80a06547dba83f9b",
     "release_notes": {
-        "en": "Critical fixes: in-app updater now actually finds new releases (host allow-list); config saves under LocalAppData (no more Permission denied); Self-Healing no longer false-flags healthy core installs; bootstrap.log captures pip output.",
-        "tr": "Kritik duzeltmeler: in-app guncelleyici artik yeni surumleri buluyor (host allow-list); config kullanici dizininde (Permission denied yok); Self-Healing saglikli core kurulumlari hatali isaretlemiyor; bootstrap.log pip ciktisini yakaliyor."
+        "en": "License hygiene + slim-down: removed non-commercial AI models (XTTS-v2 / NLLB-200) and the subtitler tool that depended on them. Dropped PyTorch GPU + MediaPipe + zombie deps. 13 video tools, 5 install components, zero non-commercial model weights.",
+        "tr": "Lisans temizliği ve hafifleştirme: ticari kullanıma kapalı AI modelleri (XTTS-v2 / NLLB-200) ve bunlara bağlı altyazı aracı kaldırıldı. PyTorch GPU + MediaPipe + ölü bağımlılıklar düştü. 13 video aracı, 5 kurulum bileşeni, sıfır ticari-kapalı model."
     }
 }

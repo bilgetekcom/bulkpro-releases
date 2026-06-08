@@ -5,6 +5,61 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.14] — 2026-06-08
+
+### License & Cleanup
+
+This release is a major slim-down. After auditing every AI model BulkPro ships,
+two had non-commercial licenses (Coqui XTTS-v2 CPML; Meta NLLB-200 CC-BY-NC-4.0)
+that we shouldn't have been bundling in a paid product. Both — and the tools
+that used them — are gone. While in there, we also ripped out dead code, zombie
+dependencies, the unused GPU PyTorch component, and a marginal subtitle tool
+whose model footprint didn't justify the value to users.
+
+### Removed
+
+- **Video AI Dubbing Studio** (`video_engine.dubber`) — XTTS-v2 voice cloning
+  was CPML-licensed; not safe for commercial distribution.
+- **Subtitle translation** in the Subtitle Generator — NLLB-200 model weights
+  are CC-BY-NC-4.0 (Meta).
+- **AI Subtitle Generator** (`video_engine.subtitler`) — strategic decision:
+  the per-tool Whisper model download (75 MB – 3 GB) wasn't justified by the
+  fraction of users that reached for subtitles.
+- **PyTorch CUDA component** (`ai_gpu`, ~2.55 GB) — CPU-only AI moving forward.
+- **MediaPipe component** (`ai_video`) — turned out the jump-cut AI mode
+  actually uses Whisper, not MediaPipe; MediaPipe was only imported by a long-
+  dead `smart_social_crop()` static method with zero callers.
+- **Zombie deps**: `pyannote.audio`, `spleeter`, the deprecated `VideoEngine`
+  facade class (12 static methods, all unreachable).
+
+### Changed
+
+- Video Studio now has **13 tools** (was 15 — subtitler + dubber removed).
+- `requirements/manifest.json` ships with **5 components** (was 7): `core`,
+  `ai_base`, `ai_bg_remover`, `ai_ocr`, `ai_transcription`.
+- `video_engine.jump_cut` AI mode moved under `ai_transcription` (its real
+  dependency was always Whisper).
+- BulkPro ships with **zero non-commercial-licensed model weights**. Every
+  remaining model is MIT or Apache-2.0 (Whisper, rembg / u2net family,
+  EasyOCR, Tesseract).
+
+### Documentation
+
+- New `docs/REMOVED_FEATURES.md`: central plain-language changelog of every
+  removed feature with rationale and a website-copy audit checklist.
+- Older internal reports (E2E, PERF, PROD_READINESS) got a "historical
+  snapshot" banner that points at REMOVED_FEATURES.md.
+- 6 app-local stale `requirements.txt`, ~15 K lines of one-shot i18n-audit /
+  refactor scripts, and the legacy `video_lab` TR locale block — all gone.
+
+### Notes
+
+- Net diff across cleanup phases: ~19 K lines removed, mostly stale.
+- `shared/updater.py` is unchanged this release, so installed copies of
+  v0.1.13 will see this update through the in-app feed normally.
+
+---
+
 ## [0.1.13] — 2026-06-07
 
 ### Fixed

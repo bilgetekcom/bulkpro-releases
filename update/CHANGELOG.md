@@ -5,6 +5,146 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.29] — 2026-06-10
+
+Bu sürüm kapsamlı bir denetim turuyla ortaya çıkan **64 bulgunun
+tamamını** kapatıyor: lisans bypass zincirleri, güvenlik açıkları, prod
+bug'lar, dead code, test kalitesi.
+
+### Security
+
+- **Lisans bypass zinciri kapatıldı.** `shared/usage_tracker.py` üç ayrı
+  zayıflığa sahipti: (1) thread'ler arası race condition sayaç kaybına
+  yol açıyordu; (2) `PROMO_MODE` modül-seviyeli bir bool'du ve tek satır
+  attribute patch ile tüm ücretli modüller ücretsiz açılıyordu; (3)
+  `_save_stats_data` `OSError`'i sessizce yutuyordu — disk doluysa
+  kullanıcı sınırsız işlem yapabiliyordu. Şimdi: `threading.RLock`,
+  promo kararı imzalı claim payload'ından okuyor, disk fail flag'i
+  UI'a yansıyor.
+- **IPC port 58342 artık kimlik doğruluyor.** Eskiden aynı kullanıcı
+  oturumundaki herhangi bir proses (browser eklentisi, malware) JSON
+  komut post'layarak BulkPro'ya kullanıcı dosyaları üzerinde işlem
+  yaptırabiliyordu. Hub boot'ta `secrets.token_urlsafe(32)` ile token
+  üretiliyor, `%LOCALAPPDATA%\BulkPro\.ipc_token`'a yazılıyor; her
+  mesajda HMAC compare_digest ile doğrulanıyor. Path'ler `realpath` +
+  user-home zorunluluğu ile normalize ediliyor.
+- **`BULKPRO_LOCK_TOKEN` artık random.** Eskiden source'ta sabit string
+  vardı (`"BULKPRO_SECURE_2026"`); saldırgan sub-app main.py'larını
+  doğrudan çalıştırıp hub bypass yapabilirdi. Şimdi hub boot'ta üretilip
+  env üzerinden sub-process'lere miras geçiyor.
+- **Server CVE'leri:** `jinja2>=3.1.6` (CVE-2025-27516 sandbox escape),
+  `python-multipart>=0.0.18` (CVE-2024-53981 DoS), `cryptography>=44.0.0`
+  (CVE-2024-26130), `requests==2.32.3` (CVE-2024-35195 verify bypass).
+- **Server admin web panel'inde CSRF koruması** (double-submit cookie
+  pattern) ve **heartbeat rate-limit** (60sn / 10 hit per instance).
+- **Updater integrity strict:** checksum yoksa installer reddediliyor;
+  eskiden silent WARNING + install ediyordu.
+- **Server signer key path strict:** `LICENSE_PRIV_KEY_PATH` env yoksa
+  FATAL; default Desktop fallback kaldırıldı.
+- **License key üretici script'ler installer'dan çıkarıldı**
+  (`scripts/_gen_license_*.py`, `debug_*.py`, `remove_itc_*.py`).
+- **Server/client token format hizalandı:** istemci artık 2-part
+  *ve* 3-part token'ı kabul ediyor; self-hosted lisans sunucusu
+  artık çalışıyor.
+
+### Fixed
+
+- **Cross-app import collision 4 app'te daha vardı.** 0.1.28'de Excel'de
+  fix'lediğimiz patolojinin aynısı PDF / Image / Audio / Video
+  worker'larında da yaşıyordu: `Excel → Image → Excel` kullanım
+  döngüsünde sibling app'in `core.utils`'i çekiliyor, worker thread
+  sessizce hata fırlatıp "yükleniyor..." durumunda asılı kalıyordu.
+  `_evict_cross_app_pollution` + `submodule_search_locations` pattern'i
+  5/5 app'e port edildi.
+- **Audio Transcriber + Video Jump Cut iptal/çıkış sıkışması.**
+  Whisper'ın `model.transcribe()` ve ffmpeg/moviepy çağrıları Python
+  kontrolüne dönmüyor; cooperative `_is_cancelled` flag'i hiçbir zaman
+  görmedikleri için Cancel butonu "cancelling..." durumunda asılı
+  kalıyordu, Exit de çalışmıyordu. Şimdi: `cancel()` 1 sn nezaket + 
+  `QThread.terminate()`; hub `closeEvent` running worker'ı zorla 
+  durduruyor; tray "Exit" artık minimize'a düşmek yerine pencereyi 
+  gerçekten kapatıyor.
+- **PDF Tools resource leak ve robust page range.** `extract_text`
+  task'ında exception path'te dosya leak'i (`open()` without `with`),
+  6 yerde `map(int, part.split("-"))` "1-2-3" girince patlıyordu, 4
+  bare `except: pass` `KeyboardInterrupt` yutuyordu. Tüm parser'lar
+  artık robust (geçersiz parça skip + KI yutmuyor) ve dosya kapanışı
+  garanti.
+- **`shared/ui/components/file_card.py`** parantez bug'ı
+  (`QLabel(str(index, self))`) — 0.1.28'in sonunda fix'lendiydi,
+  bu sürümle release'e dahil edildi.
+
+### Changed
+
+- **FFmpeg LICENSE bilgisi About dialog'unda.** GPL build kullanıldığı
+  için credit notu eklendi; `external/ffmpeg/LICENSE` dosyası "Open"
+  butonu ile gösteriliyor.
+- **PDF Merge / Split / Compress + Excel To-PDF UI'leri**
+  `FileQueueList`'ten `FileBatchPanel`'e migrate edildi; drag-drop ve
+  queue davranışı diğer 60+ tool ile artık tutarlı.
+- **3 raw `QComboBox` → shared `ComboBox`** (video jump_cut, data_engine
+  archive, intel_suite media downloader).
+- **Worker signal sözleşmesi standardize edildi:** `SecurityWorker`,
+  `_BulkWorker`, `_BreachWorker` artık `Signal(bool, str)` kullanıyor;
+  rich payload `worker.result`'a taşındı.
+- **`model_manager` worker iptal flag'i `threading.Event`'e geçti.**
+  Backward-compat property korundu.
+- **i18n:** file_search / data_engine / sys_tools / text_tools içindeki
+  ~28 hardcoded string `tr()` ile sarıldı (EN + TR çevirileri eklendi).
+
+### Removed (dead code)
+
+- **36 ölü dosya silindi** (~138 KB):
+  - `apps/data_engine/src/engine/` zinciri (engine.py, discovery_engine,
+    archiver, deduplicator, windows_search, regex_library, _purchase_helper)
+  - `apps/data_engine/src/ui/dedupe_page.py` (sanitizer'a migrate edilmişti)
+  - `apps/file_search/src/core/` paralel paket (paralel `engine/` aktif)
+  - `audio_engine` / `video_engine` zombi tools (audio_tools, audio_lab,
+    video_tools, video_lab + `_style.py`'lar) — DeprecationWarning raise
+    ediyorlardı, kullanılmıyorlardı
+  - `text_tools/src/engine/text_engine.py`
+  - `shared/help_manager.py`
+  - 8 eski one-shot script (debug_fitz, remove_itc_branding,
+    cleanup_workspace, fetch_tesseract_direct, fetch_deps, setup_app,
+    build_app, check_deps)
+  - `_bulkpro_runtime.log` (repo'ya commit edilmiş runtime log)
+- **5 ölü asset**: boş `data/` dizini + 3 referans verilmeyen locale
+  JSON (`apps.json`, `media_engine.json`, `tools.json`).
+- **30+ anlamlı ölü import** (Qt/QLabel/QColor/FormGrid/t vb.).
+
+### Tests
+
+- **133 yeni koruma testi:** shared widget smoke (34), tab integrity (64
+  — her app'in her sekmesinin doğru tool class'ını döndürdüğünü garanti
+  eden regression koruyucu), 18 yeni functional test (9 audio + 9 video
+  araç için), 9 edge case (unicode dosya adı, 0-sayfa, paralel worker,
+  read-only output, yanlış parola, 100-dosya batch, vb.).
+- **Semantic validator** (`tests/semantic_validator.py`): test çıktılarını
+  pypdf/openpyxl/PIL/ffprobe ile açıp **gerçekten doğru işlem yapılmış
+  mı** diye doğruluyor (merge page count sum, jump_cut süre kısalması,
+  stereo→mono boyut yarıya inmesi vb.). 181/0/0 ok.
+- **Tool refactor borcu:** 5 app'in main.py'ındaki `_TAB_ENTRIES`
+  sırasının test beklentileriyle senkron kaldığını `test_tab_integrity`
+  garanti ediyor; tab bir yere kayarsa anında fail veriyor (0.1.28'deki
+  "FileCard bug'ın testlerden niye kaçtığı" hikayesinin tekrarlanmaması
+  için).
+- **Mock zayıflıkları:** `QMessageBox.critical` artık `pytest.fail`
+  çağırıyor (kritik pop-up sessizce yutulmuyor), `pytesseract` mock'u
+  input-aware, `ocrmypdf` mock'u OCR metadata stamp ekliyor.
+- **STRUCTURAL skip → fail (37 dönüşüm):** modül silinirse "modül yok →
+  pytest.skip" yerine "modül yok → assertion fail" — silent green
+  riski kapatıldı.
+- **Heavy task timeout (`_HEAVY_TASKS`):** ocr/transcribe/diarize/jump_cut
+  vb. için varsayılan 40s yerine 300s; UI-test framework `start_grace`
+  false-negative'lerini yakalama opsiyonu (`require_busy=True`).
+
+### Test results
+
+596 test pass / 4 skip (Whisper / pyannote env-dep) / **0 fail**.
+Semantic validator: 181 dosya / 0 warn / 0 fail.
+
+---
+
 ## [0.1.28] — 2026-06-09
 
 ### Changed

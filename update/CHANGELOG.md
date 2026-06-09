@@ -5,6 +5,26 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.28] — 2026-06-09
+
+### Changed
+
+- **Tools reordered for muscle-memory consistency.** Converter is now the
+  first tile in every module that has one (PDF, Excel, Image, Video,
+  Audio). Within each module the rest is sorted by guessed-frequency —
+  high-traffic operations like merge / split / compress / cutter / resize
+  / extract above niche or workflow-specific ones, with AI-gated tools
+  (OCR, jump-cut, transcription, diarization, noise reduction, bg
+  remover, upscaler) pushed to the bottom so users don't trip over an
+  install prompt while reaching for an everyday utility.
+- Productivity Suite reorders too: Smart Search → Archive → Hash →
+  Password → Calculation Station → Code Formatter → Text Analyzer →
+  Media Downloader → Barcode → Color Picker → Metadata Audit → OCR.
+- System Center: Disk Cleaner → Power Manager → Always On Top → Focus
+  Mode → Smart Reminder.
+
+---
+
 ## [0.1.27] — 2026-06-08
 
 ### Fixed

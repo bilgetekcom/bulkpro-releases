@@ -1,13 +1,13 @@
 {
-    "version": "0.1.27",
+    "version": "0.1.28",
     "release_date": "2026-06-09",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.27/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "f7ccd621f1e73f4ed0e9500b45234905629976326a40a012eb1b77b848788e73",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.28/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "51fed3f89b06c392ef5112c2b4fdd202d249d207e306f1475da6f7a3feb2af00",
     "release_notes": {
-        "en": "Install splash Turkish character encoding fix: install_splash.ps1 now saved with UTF-8 BOM so PowerShell 5.1 reads diacritics correctly (was falling back to Windows-1254 and mangling 'Geçen süre').",
-        "tr": "Kurulum splash Türkçe karakter kodlama düzeltmesi: install_splash.ps1 artık UTF-8 BOM ile kaydediliyor; PowerShell 5.1 Windows-1254'e geri düşmüyor ve 'Geçen süre' doğru görüntüleniyor."
+        "en": "Tool tiles reordered for consistency: Converter is now first in every module that has one (PDF/Excel/Image/Video/Audio). Within each module the rest is sorted by guessed-frequency; AI-gated tools pushed to the bottom.",
+        "tr": "Tool tile sıralaması tutarlılık için düzenlendi: Converter artık her modülde 1. sırada (PDF/Excel/Görüntü/Video/Ses). Modül içinde geri kalan tahmini kullanım sıklığına göre dizildi; AI gerektirenler en sona alındı."
     }
 }

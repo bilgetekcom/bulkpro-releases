@@ -1,13 +1,13 @@
 {
-    "version": "0.1.26",
-    "release_date": "2026-06-08",
+    "version": "0.1.27",
+    "release_date": "2026-06-09",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.26/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "dff05763f883bfeed90719908d8648b1e54874a8d99d3e6c33af56fd70ddff80",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.27/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "f7ccd621f1e73f4ed0e9500b45234905629976326a40a012eb1b77b848788e73",
     "release_notes": {
-        "en": "AI component install now offers to restart BulkPRO so the freshly-installed wheels are picked up by the running interpreter.",
-        "tr": "AI bileşeni kurulumu artık BulkPRO'yu yeniden başlatmayı öneriyor — yeni kurulan wheel'lar çalışan interpreter tarafından kullanılabilir hale gelsin diye."
+        "en": "Install splash Turkish character encoding fix: install_splash.ps1 now saved with UTF-8 BOM so PowerShell 5.1 reads diacritics correctly (was falling back to Windows-1254 and mangling 'Geçen süre').",
+        "tr": "Kurulum splash Türkçe karakter kodlama düzeltmesi: install_splash.ps1 artık UTF-8 BOM ile kaydediliyor; PowerShell 5.1 Windows-1254'e geri düşmüyor ve 'Geçen süre' doğru görüntüleniyor."
     }
 }

@@ -5,6 +5,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.27] — 2026-06-08
+
+### Fixed
+
+- **First-launch splash no longer mangles Turkish characters.** PowerShell
+  5.1 falls back to the system ANSI code page (Windows-1254 on a Turkish
+  locale) when a `.ps1` file lacks a UTF-8 byte-order mark — `Geçen süre`
+  was being read as `Geçen süre`, `bileşenler` as `bileşenler`, etc.
+  `scripts/install_splash.ps1` is now saved with a UTF-8 BOM and the
+  hint / message strings use proper Turkish diacritics throughout.
+
+---
+
 ## [0.1.26] — 2026-06-08
 
 ### Changed

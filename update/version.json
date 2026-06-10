@@ -1,13 +1,13 @@
 {
-    "version": "0.1.29",
+    "version": "0.1.30",
     "release_date": "2026-06-10",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.29/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "f5b30d59242e1e3ea375e96d97ee4dc6e430536ed8edb47e3fdb030fab43c4d5",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.30/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "ef6ad2e8731f02e4b62500e0ee3dc666eb275e6e1d716ceace15f490399581a8",
     "release_notes": {
-        "en": "Comprehensive audit release: 64 findings closed. License bypass chain in usage_tracker fixed; IPC port now authenticates; cross-app collision patched in all 5 apps; Audio Transcriber and Video Jump Cut cancel/exit no longer hang; server CVEs patched; 36 dead files removed; 133 new regression tests. 596 pass / 0 fail.",
-        "tr": "Kapsamlı denetim sürümü: 64 bulgu kapatıldı. usage_tracker lisans bypass zinciri düzeltildi; IPC kimlik doğruluyor; cross-app collision 5 app'te düzeltildi; Audio Transcriber ve Video Jump Cut iptal/çıkış asılı kalmıyor; sunucu CVE'leri yamandı; 36 ölü dosya silindi; 133 yeni regression testi. 596 başarılı / 0 başarısız."
+        "en": "Hotfix v0.1.30: models directory now in LOCALAPPDATA instead of Program Files (was crashing bootstrap with PermissionError on non-admin sessions in v0.1.29).",
+        "tr": "Hotfix v0.1.30: models klasoru artik LOCALAPPDATA altinda. v0.1.29'da Program Files altina yazmaya calisiyordu, admin olmayan oturumlarda bootstrap PermissionError ile kiriliyordu."
     }
 }

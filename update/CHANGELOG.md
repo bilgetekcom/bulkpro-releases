@@ -5,6 +5,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.30] — 2026-06-10 (hotfix)
+
+### Fixed
+
+- **Models klasörü artık LOCALAPPDATA altında**, eskiden Program Files altında
+  oluşturulmaya çalışılıyordu ve UAC izni olmayan kullanıcı oturumlarında
+  `PermissionError [WinError 5]` ile bootstrap kırılıyordu. Ayrıca aktif
+  BulkPro instance'i ile pip install arasındaki dosya kilitleme yarışını
+  azaltmak için bootstrap önce mevcut process'leri kontrol ediyor.
+  Etkilenen path: `MODELS_DIR` → `%LOCALAPPDATA%\BulkPro\models`.
+
+---
+
 ## [0.1.29] — 2026-06-10
 
 Bu sürüm kapsamlı bir denetim turuyla ortaya çıkan **64 bulgunun

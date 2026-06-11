@@ -1,13 +1,13 @@
 {
-    "version": "0.1.33",
+    "version": "0.1.34",
     "release_date": "2026-06-11",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.33/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "8eaef6b95f44d16808365ad2d0ffa2aca58128af68a5108338cad81773f58fab",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.34/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "e87a88082b8ba5fc216c6b6a90241cd1f550bf0fae9e4eaca0bb0d64362e7e7a",
     "release_notes": {
-        "en": "Media downloader and metadata report fixed; audio tools repaired on fresh installs; English UI cleanup; license errors now show technical codes.",
-        "tr": "Medya indirici ve metadata raporu onarildi; ses araclari taze kurulumlarda duzeltildi; Ingilizce arayuz temizligi; lisans hatalari teknik kod gosteriyor."
+        "en": "Explorer right-click menus repaired; video tools fixed for windowless runs; new thumbnail tool (smart frame, contact sheet, frame series); license badge shows your plan name.",
+        "tr": "Sag tik menuleri onarildi; video araclari penceresiz calismada duzeltildi; yeni thumbnail araci (akilli kare, kontak tablo, kare serisi); lisans rozeti plan adini gosteriyor."
     }
 }

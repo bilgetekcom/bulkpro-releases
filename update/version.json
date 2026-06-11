@@ -1,13 +1,13 @@
 {
-    "version": "0.1.36",
+    "version": "0.1.37",
     "release_date": "2026-06-11",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.36/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "77836b9b2c55178486eabf0139d51ed693e974627b2649b93d7fab97140cbc4e",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.37/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "b764a20dca4d31247470790a09a78746a583e961b512c014d6712156fbf2f6e6",
     "release_notes": {
-        "en": "Updates now install automatically without prompts; license state syncs with the server at every launch; restart repaired.",
-        "tr": "Guncellemeler artik sorusuz otomatik kuruluyor; lisans durumu her acilista sunucuyla esitleniyor; yeniden baslatma onarildi."
+        "en": "BulkPro 0.1.37 is ready.",
+        "tr": "BulkPro 0.1.37 hazir."
     }
 }

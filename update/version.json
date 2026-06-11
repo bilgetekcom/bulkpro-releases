@@ -1,13 +1,13 @@
 {
-    "version": "0.1.35",
+    "version": "0.1.36",
     "release_date": "2026-06-11",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.35/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "3b9ef682f0357f9e449b029223de533b6d4d75a5d296386b2364bcae081ecaa3",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.36/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "77836b9b2c55178486eabf0139d51ed693e974627b2649b93d7fab97140cbc4e",
     "release_notes": {
-        "en": "The app now checks for updates at every launch (previously every 24 hours).",
-        "tr": "Uygulama artik her acilista guncellemeleri kontrol ediyor (onceden 24 saatte birdi)."
+        "en": "Updates now install automatically without prompts; license state syncs with the server at every launch; restart repaired.",
+        "tr": "Guncellemeler artik sorusuz otomatik kuruluyor; lisans durumu her acilista sunucuyla esitleniyor; yeniden baslatma onarildi."
     }
 }

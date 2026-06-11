@@ -1,13 +1,13 @@
 {
-    "version": "0.1.30",
-    "release_date": "2026-06-10",
+    "version": "0.1.33",
+    "release_date": "2026-06-11",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.30/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "ef6ad2e8731f02e4b62500e0ee3dc666eb275e6e1d716ceace15f490399581a8",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.33/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "8eaef6b95f44d16808365ad2d0ffa2aca58128af68a5108338cad81773f58fab",
     "release_notes": {
-        "en": "Hotfix v0.1.30: models directory now in LOCALAPPDATA instead of Program Files (was crashing bootstrap with PermissionError on non-admin sessions in v0.1.29).",
-        "tr": "Hotfix v0.1.30: models klasoru artik LOCALAPPDATA altinda. v0.1.29'da Program Files altina yazmaya calisiyordu, admin olmayan oturumlarda bootstrap PermissionError ile kiriliyordu."
+        "en": "Media downloader and metadata report fixed; audio tools repaired on fresh installs; English UI cleanup; license errors now show technical codes.",
+        "tr": "Medya indirici ve metadata raporu onarildi; ses araclari taze kurulumlarda duzeltildi; Ingilizce arayuz temizligi; lisans hatalari teknik kod gosteriyor."
     }
 }

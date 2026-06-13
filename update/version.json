@@ -1,13 +1,13 @@
 {
-    "version": "0.1.40",
-    "release_date": "2026-06-12",
+    "version": "0.1.41",
+    "release_date": "2026-06-13",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.40/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "cbd90f94946d4bf4234114ccca7a353df13f0373606bfe26d4029b38cb8533e0",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.41/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "15f3359dba288127bae3cedb632c85e31fb5e279ef4771802b6bdffee5d1240e",
     "release_notes": {
-        "en": "BulkPro 0.1.40: cleanup and fixes.",
-        "tr": "BulkPro 0.1.40: sadelestirme ve onarim turu."
+        "en": "BulkPro 0.1.41: Bulk Renamer + duplicate file finder.",
+        "tr": "BulkPro 0.1.41: yeni Toplu Yeniden Adlandirici + yinelenen dosya bulma."
     }
 }

@@ -5,6 +5,30 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.43] — 2026-07-26
+
+### Fixed
+
+- **Video görevleri kurulu uygulamada "Permission denied" ile ölüyordu.**
+  MoviePy geçici ses dosyasının adını yalnızca çıktının dosya adından türetiyor
+  (`VideoClip.write_videofile`), dolayısıyla dosya process'in **çalışma
+  dizinine** yazılıyordu. Kurulu uygulama `C:\Program Files\BulkPRO` cwd'siyle
+  koştuğu için sesi olan her video görevi (kırpma, dönüştürme, sıkıştırma,
+  yeniden boyutlandırma, hız, filigran, ses master, intro/outro) tek kare bile
+  encode etmeden düşüyordu. Geçici dosya artık çıktı klasörüne sabitleniyor.
+  Yeni ortak yardımcı: `apps/video_engine/src/core/tasks/video_writer.py`.
+- **Kırpma aracının "böl" modu 3. parçadan sonra patlıyordu.** Alt-klip
+  `close()` edilince ana klibin paylaşılan ffmpeg okuyucusu da kapanıyor,
+  sonraki parçalar `'NoneType' object has no attribute 'stdout'` veriyordu.
+- **WEBM ve WMV çıktısı hiç çalışmıyordu.** `libopus` ve `wmav2` MoviePy'ın
+  codec→container tablosunda yok, bu yüzden yazma daha başlamadan
+  `ValueError` fırlatıyordu; libopus ayrıca MoviePy'ın varsayılanı olan
+  44.1 kHz'i reddediyor. Her ikisi de eşlendi (WEBM sesi 48 kHz'e sabitlendi).
+
+Regresyon testleri: `tests/test_video_writer.py`.
+
+---
+
 ## [0.1.30] — 2026-06-10 (hotfix)
 
 ### Fixed

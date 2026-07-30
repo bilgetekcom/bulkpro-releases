@@ -5,6 +5,33 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.44] — 2026-07-30
+
+### Fixed
+
+- **Ilk kurulumda bootstrap zinciri sessizce bozuluyordu — uc birbirine bagli hata.**
+  1. Medya Indirici: `external/` binary'leri kurulumla gelmiyor, ilk-acilis
+     ffmpeg fetch'i `run.bat`in hizli yolu tarafindan atlaniyordu. Video+ses
+     birlestirme gerektiren her indirme "ffmpeg is not installed" ile
+     dusuyordu. `run.bat` artik ffprobe yoksa hizli yolu atlar; indirme
+     motoru ffmpeg'i son bir kez daha getirmeyi dener, gercekten yoksa
+     agsiz ve anlasilir bir hatayla hizlica durur.
+  2. `run.bat` Unix (LF) satir sonlariyla kayitliydi. `cmd.exe`'nin
+     GOTO/etiket konumlandirmasi CRLF varsayar; LF-only dosyada ilk
+     kurulumu tetikleyen HER `goto` (yani her sifir makine) komutlarin
+     rastgele kelimelere bolunup calistirilmaya calisilmasina yol
+     aciyordu. CRLF'e cevrildi.
+  3. `bootstrap.py`, eski `.venv` klasorlerini temizlerken
+     `taskkill /F /IM python.exe` calistiriyordu — SISTEMDEKI HER
+     python.exe surecini (kendisi dahil, kullanicinin alakasiz diger
+     Python isleri dahil) anlik olarak sonlandiriyordu. Kaldirildi;
+     mevcut retry+read-only-temizleme mekanizmasina birakildi.
+  Regresyon testi: `tests/test_media_ffmpeg_resolution.py`. Zincir, sifir
+  bir makinede gercek `run.bat` girisinden uctan uca dogrulandi (pip
+  kurulum -> ffmpeg fetch -> model senkron -> gercek video indirme).
+
+---
+
 ## [0.1.43] — 2026-07-26
 
 ### Fixed

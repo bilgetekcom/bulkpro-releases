@@ -5,6 +5,30 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.45] — 2026-10-10
+
+### Permanent full access / Kalıcı tam erişim
+
+- Every installation has permanent full access without a license key,
+  subscription, activation, or connection to the license server.
+- License-based daily/monthly usage, batch, file-size and duration caps are
+  removed. Hardware and supported file-format constraints still apply.
+- Existing free, paid, expired and revoked licenses all receive the same access;
+  stored license and user data are preserved.
+- License refresh, remote limits, purchase prompts and usage telemetry are
+  disabled. The signed update channel remains available.
+- Previously installed tools continue to work offline where their operation
+  permits it. Optional AI models/components may still need an initial download.
+- Active product development is ending. This release does not fix all existing
+  tool-specific issues or add new functionality.
+
+Tüm kurulumlar anahtar, abonelik ve lisans sunucusu gerektirmeden kalıcı tam
+erişime geçer. Lisansa bağlı kullanım sınırları ve satın alma istemleri
+kaldırılmıştır. Mevcut kullanıcı verileri korunur; kurulu araçlar çalışmaya
+devam eder. BulkPro'nun aktif ürün geliştirmesi sona ermektedir.
+
+---
+
 ## [0.1.44] — 2026-07-30
 
 ### Fixed

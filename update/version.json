@@ -1,13 +1,13 @@
 {
-    "version": "0.1.45",
+    "version": "0.1.46",
     "release_date": "2026-10-10",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.45/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "169200d5b9581286f95d4fe000b1a472d7f6fe2d67e9b9d5a59bd89c71707d16",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.46/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "d31d4c5d7123f2618569787f00e89546afc2079bf1b99500f2866b7c30a8c739",
     "release_notes": {
-        "en": "BulkPro 0.1.45: permanent full access. No license key, subscription or license-based usage limits.",
-        "tr": "BulkPro 0.1.45: kalıcı tam erişim. Lisans anahtarı, abonelik ve lisansa bağlı kullanım sınırları kaldırıldı."
+        "en": "Fixed bulk rename and undo, updates during active jobs, tool search routing, and Excel comparison reports.",
+        "tr": "Toplu adlandırma ve geri alma, aktif işler sırasında güncelleme, araç araması ve Excel karşılaştırma raporu hataları düzeltildi."
     }
 }

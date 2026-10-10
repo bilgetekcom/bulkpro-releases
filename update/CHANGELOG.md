@@ -5,6 +5,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.46] — 2026-10-10
+
+### Fixed
+
+- Bulk renaming and undo preserve unrelated files when names collide.
+- Automatic updates wait for active user jobs and preserve the running app if installer launch fails.
+- Intelligence Suite search routes match the actual tool order.
+- Excel difference reports use consistent localized worksheet names and row colors.
+- Permanent full access remains unchanged; no new features were added.
+
 ## [0.1.45] — 2026-10-10
 
 ### Permanent full access / Kalıcı tam erişim

@@ -5,6 +5,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.47] — 2026-10-30
+
+### Fixed
+
+- YouTube downloads no longer fail with 403 Forbidden (yt-dlp updated to 2026.10.21).
+- Media Downloader enables an installed Node/Deno runtime for YouTube challenge solving.
+
 ## [0.1.46] — 2026-10-10
 
 ### Fixed

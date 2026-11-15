@@ -1,13 +1,13 @@
 {
-    "version": "0.1.47",
-    "release_date": "2026-10-30",
+    "version": "0.1.48",
+    "release_date": "2026-11-16",
     "min_required": "0.1.0",
     "channel": "stable",
     "changelog_url": "https://bilgetekcom.github.io/bulkpro-releases/update/CHANGELOG.md",
-    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.47/BulkPRO-Web-Setup.exe",
-    "checksum_sha256": "24131f254b7e5726e07d25b3643c02711b70356458c5b191cfd246f4ddea4014",
+    "download_url": "https://github.com/bilgetekcom/bulkpro-releases/releases/download/v0.1.48/BulkPRO-Web-Setup.exe",
+    "checksum_sha256": "a1950c30cc644bfd66ca027edc924d6ccc86c41673462a8c0e997f911f7e0101",
     "release_notes": {
-        "en": "BulkPro 0.1.47 is ready.",
-        "tr": "BulkPro 0.1.47 hazır."
+        "en": "BulkPro 0.1.48 is ready.",
+        "tr": "BulkPro 0.1.48 hazır."
     }
 }

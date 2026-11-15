@@ -5,6 +5,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.48] — 2026-11-16
+
+### Added
+
+- Media Downloader: IDM-style Saved Site Logins with wildcard subdomain matching (`ftp://*.domain.net`, `http://*.domain.net`).
+- Media Downloader: Multi-connection segmented (`curl.exe -r`) and resumable downloads for FTP/FTPS and direct archive/file URLs (`zip`, `rar`, `iso`, `7z`, etc.).
+- Media Downloader Queue: Clipboard URL import, `.txt` list import, live speed/bytes/ETA progress tracking, and finished-item cleanup.
+
 ## [0.1.47] — 2026-10-30
 
 ### Fixed
